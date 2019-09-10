@@ -14,12 +14,12 @@ const TodoList = () => {
 
         return (
            <div>
-                {todos.map(item => {
+                {/* {todos.map(item => {
                   return (
                     <NewTodo />
                   )
-                })} 
-                    <TodoForm /> 
+                })}  */}
+
             </div>
         )
 }

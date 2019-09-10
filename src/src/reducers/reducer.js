@@ -1,6 +1,7 @@
 // import React, { useReduce } from 'react';
 
-export const initialState = [
+export const initialState = { 
+    dataSet: [
     {
     item: 'Learn about reducers',
     completed: false,
@@ -16,17 +17,18 @@ export const initialState = [
     completed: false,
     id: 3892987591
     }
-]
+] }
 
 export const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_TODO":
             return {...state, 
-                newTodo: {
+                newTodo: [...state.dataSet,
+                    {
                     item: action.payload,
                     completed: false,
-                    id: 124983753
-                }};
+                    id: Date.now()
+                } ] };
         default: 
             return state;
     }
