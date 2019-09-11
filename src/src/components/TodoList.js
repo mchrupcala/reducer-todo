@@ -3,22 +3,21 @@ import { initialState } from '../reducers/reducer';
 import NewTodo from './NewTodo'
 import TodoForm from './TodoForm';
 
-const TodoList = () => {
-// const [todoState, setTodoState] = useState([]);
+const TodoList = ({todos}) => {
 
-//Keep track of my state here (with useReduce).
-    //Then, map through all my todo's stored in state.
-
-    const todos = initialState;
-    console.log(todos);
+    // const todos = initialState;
+    // console.log(props);
 
         return (
            <div>
-                {/* {todos.map(item => {
+                {todos.map(item => {
                   return (
-                    <NewTodo />
+                    <NewTodo 
+                    key={item.id}
+                    name={item.item}
+                    />
                   )
-                })}  */}
+                })} 
 
             </div>
         )

@@ -1,27 +1,38 @@
 import React, {useState, useReducer} from 'react';
 
 
-const TodoForm = (props) => {
-const [newTodo, setNewTodo] = useState();
-//Since I moved my Reducer to App...should this useState hook move there too?
+const TodoForm = ({addTodo}) => {
+
+    const [todoText, setTodoText] = useState('');
 
 
-// const [state, dispatch] = useReducer({reducer, initialState})
 
 const changeHandler = event => {
-    setNewTodo(event.target.value);
+    setTodoText(event.target.value);
+}
+
+const handleSubmit = event => {
+    event.preventDefault();
+
+    // call addTodo, which will send the user's data into my reducer as a new todo item.
+    addTodo(todoText);
+
+    //change the input value of my form back to an empty string.
+    setTodoText('');
 }
 
     return (
         <div>
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <label>Enter To-do:
                     <input
                     type="text"
-                    value={newTodo}
+                    value={todoText}
                     name="newTodo"
                     onChange={changeHandler}
                     >
+                        {//^^Set the state value ('todoText') to whatever the user enters. That's where my data starts.
+                        }
                     </input>
                 </label>
 
@@ -30,6 +41,8 @@ const changeHandler = event => {
                 >
                     Add
                 </button>
+
+
             </form>
         </div>
     )

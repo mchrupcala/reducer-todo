@@ -1,9 +1,9 @@
 import React from 'react';
 
-const NewTodo = () => {
+const NewTodo = (props) => {
     return (
         <div>
-            
+            {props.name}
         </div>
     )
 }

@@ -1,4 +1,4 @@
-// import React, { useReduce } from 'react';
+import React  from 'react';
 
 export const initialState = { 
     dataSet: [
@@ -23,7 +23,7 @@ export const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_TODO":
             return {...state, 
-                newTodo: [...state.dataSet,
+                dataSet: [...state.dataSet,
                     {
                     item: action.payload,
                     completed: false,

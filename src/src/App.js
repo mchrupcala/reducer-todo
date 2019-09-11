@@ -6,28 +6,23 @@ import TodoList from './components/TodoList';
 
 function App() {
 
-  const [state, dispatch] = useReducer({reducer, initialState})
+  // dispatch is the method I use to send data over to my reducer.js.
+  const [state, dispatch] = useReducer(reducer, initialState)
 
-  // const addTodo = (item) => {
-  //   dispatch({ 
-  //     type: "ADD_TODO", 
-  //     payload: item })
-  // }
-
-  const handleSubmit = e => {
-    e.preventDefault();
+  const addTodo = item => {
     dispatch({ 
       type: "ADD_TODO", 
-      payload: e })
+      payload: item })
   }
+
 
 
   return (
     <div className="App">
-      <TodoList />
+      <TodoList todos={state.dataSet}/>
       <TodoForm 
-      // addTodo={addTodo} 
-      handleSubmit={handleSubmit} />
+      addTodo={addTodo}
+      />
     </div>
   );
 }
